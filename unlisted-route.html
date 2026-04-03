@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNLISTED ROUTE ANALYSIS | Luxia Residence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #080808;
+            color: #888;
+            font-family: 'Noto Serif JP', serif;
+        }
+        .mono { font-family: 'Share Tech Mono', monospace; }
+        .alert-text { color: #d4a017; } /* アンバー色の警告色 */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0) 100%);
+            opacity: 0.1;
+            position: fixed;
+            bottom: 100%;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+        .route-map {
+            background: #111;
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #d4a017;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+    </style>
+</head>
+<body class="pt-24">
+    <div class="scanline"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-black/95 backdrop-blur-md border-b border-stone-900">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="toppage.html" class="flex flex-col">
+                <span class="text-xs tracking-[0.3em] uppercase text-stone-700">Luxia Residence</span>
+                <span class="text-xl serif font-bold tracking-wider text-stone-300">ルクシアレジデンス青山</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 text-sm tracking-widest font-light">
+                <a href="toppage.html#concept" class="nav-link">CONCEPT</a>
+                <a href="location.html" class="nav-link">LOCATION</a>
+                <a href="design.html" class="nav-link">DESIGN</a>
+                <a href="plan.html" class="nav-link">PLAN</a>
+                <a href="access.html" class="nav-link">ACCESS</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="hidden lg:flex items-center border-b border-stone-800">
+                    <input type="text" id="site-search" placeholder="SYSTEM SEARCH" class="bg-transparent text-[10px] py-1 px-2 focus:outline-none placeholder-stone-700 w-32 tracking-widest text-stone-500">
+                    <button class="p-1" onclick="handleSearch()">
+                        <svg class="w-3 h-3 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <div class="mb-16 border-l border-stone-800 pl-8">
+            <span class="mono text-xs alert-text tracking-[0.5em] uppercase block mb-2">Internal Security Log</span>
+            <h1 class="text-3xl md:text-4xl serif font-bold text-stone-200 mb-6">非公開経路：TYPE-B 接続解析</h1>
+            <p class="text-sm leading-loose font-light max-w-2xl">
+                表参道駅 A4出口より分岐する「非公開経路」は、都市開発計画から意図的に抹消された空間です。
+                これは居住者の利便性のためではなく、TYPE-Bユニットへ「何か」を運び込み、あるいは「誰か」を外界に接触させずに収容するための、物理的な排他的回廊として機能します。
+            </p>
+        </div>
+
+        <!-- Visual Analysis -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+            <div class="route-map aspect-square flex items-center justify-center p-12">
+                <svg viewBox="0 0 100 100" class="w-full h-full opacity-60">
+                    <!-- 都市のグリッド -->
+                    <path d="M0 20 H100 M0 40 H100 M0 60 H100 M0 80 H100" class="stroke-stone-900 stroke-[0.2]" />
+                    <path d="M20 0 V100 M40 0 V100 M60 0 V100 M80 0 V100" class="stroke-stone-900 stroke-[0.2]" />
+                    <!-- 公開されている道路 -->
+                    <path d="M20 20 L20 80 L80 80" class="stroke-stone-700 stroke-1 fill-none" />
+                    <!-- 非公開経路 -->
+                    <path d="M20 40 Q 50 45, 60 60 L 60 70" class="stroke-amber-900 stroke-1 fill-none dash" stroke-dasharray="2,1" id="route-path" />
+                    <circle cx="60" cy="70" r="2" class="fill-amber-600 animate-ping" />
+                    <text x="64" y="72" class="text-[3px] mono fill-amber-700">POINT: TYPE-B ENTRANCE</text>
+                </svg>
+            </div>
+            <div class="space-y-8">
+                <div class="border-b border-stone-900 pb-6">
+                    <h3 class="serif text-lg text-stone-300 mb-4">空間的特異性</h3>
+                    <p class="text-xs leading-relaxed text-stone-500">
+                        この経路内では、GPS座標のドリフト（±15m）が常時発生します。九条玲二が設計した「幾何学的歪み」により、一般通行者がこの路地を視認・認識することは確率論的に排除されています。
+                    </p>
+                </div>
+                <div class="border-b border-stone-900 pb-6">
+                    <h3 class="serif text-lg text-stone-300 mb-4">TYPE-Bへの直結</h3>
+                    <p class="text-xs leading-relaxed text-stone-500">
+                        経路の終端は、ルクシアレジデンス青山 地下2階の非公式搬入口に直結しています。ここからTYPE-B（アトリエ）へは、専用の気密エレベーターによるアクセスのみが許可されます。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Warning Data -->
+        <section class="bg-stone-900/20 p-8 border border-stone-800 mb-24">
+            <h2 class="mono text-xs alert-text mb-6 tracking-widest uppercase">Protocol: A4-EVASION</h2>
+            <div class="space-y-4 text-[11px] leading-loose mono">
+                <div class="flex">
+                    <span class="w-24 text-stone-600">[TIME: 02:14]</span>
+                    <span>霧の発生を確認。経路の「延伸」フェーズに移行。</span>
+                </div>
+                <div class="flex">
+                    <span class="w-24 text-stone-600">[DATA: RECV]</span>
+                    <span>TYPE-B内部からのノイズレベルが規定値を超過。</span>
+                </div>
+                <div class="flex">
+                    <span class="w-24 text-stone-600">[ACTION]</span>
+                    <span>該当経路の物理的封鎖を推奨。一般公開サイトのACCESS情報を「徒歩4分」に固定維持。</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-20 px-6 text-center border-t border-stone-900">
+        <div class="flex flex-col items-center group mb-12">
+            <div class="w-64 h-0.5 bg-stone-900 rounded-full overflow-hidden mb-3">
+                <div class="bg-amber-900 h-full w-[80%] transition-all duration-1000 group-hover:bg-amber-500"></div>
+            </div>
+            <div class="text-[10px] tracking-[0.4em] text-stone-600 mono flex items-center">
+                <span class="mr-2">SYNC_RATIO:</span>
+                <span class="text-stone-300">08</span>
+                <span class="mx-1">/</span>
+                <span>10</span>
+            </div>
+        </div>
+        <p class="text-[9px] mono text-stone-800 tracking-[0.5em] uppercase">The path is narrow. The gate is heavy.</p>
+    </footer>
+
+    <script>
+        function handleSearch() {
+            const query = document.getElementById('site-search').value;
+            if (query) {
+                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
+        }
+        document.getElementById('site-search').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') handleSearch();
+        });
+    </script>
+</body>
+</html>

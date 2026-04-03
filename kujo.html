@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kujo Reiji | Architecture & Observation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #d1d1d1;
+            font-family: 'Noto Serif JP', serif;
+        }
+        .mono { font-family: 'Share Tech Mono', monospace; }
+        .glitch-border {
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+        .glitch-border:hover {
+            border-color: #666;
+            box-shadow: 0 0 15px rgba(255,255,255,0.05);
+        }
+        /* スキャンライン演出 */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9999;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <header class="max-w-4xl mx-auto mb-20">
+        <div class="flex justify-between items-end border-b border-stone-800 pb-4">
+            <div>
+                <h1 class="text-3xl tracking-tighter">九条 玲二</h1>
+                <p class="mono text-xs text-stone-500 mt-2">REIJI KUJO / ARCHITECT & PRINCIPAL OBSERVER</p>
+            </div>
+            <nav class="text-[10px] mono text-stone-500 space-x-6">
+                <a href="toppage.html" class="hover:text-white transition uppercase">Return to Public Site</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto">
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+            <div class="md:col-span-2">
+                <h2 class="text-xl mb-6 italic text-stone-400">「建築とは、封印である」</h2>
+                <div class="space-y-6 text-sm leading-loose font-light text-stone-300">
+                    <p>
+                        私の設計思想は、常に「境界」の構築にあります。内と外、光と影、そして既知と未知。
+                    </p>
+                    <p>
+                        ルクシアレジデンス青山において私が試みたのは、住居という形態を借りた一つの「檻」です。
+                        それは住人を守るためのものでもあり、同時に、地下に眠る「それ」を外に出さないための蓋でもあるのです。
+                    </p>
+                    <p class="text-stone-500 italic">
+                        ―― 1998年、最初の観測記録より抜粋。
+                    </p>
+                </div>
+            </div>
+            <div class="aspect-[3/4] bg-stone-900 border border-stone-800 grayscale flex items-center justify-center relative overflow-hidden group">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600')] bg-cover bg-center opacity-40 group-hover:opacity-60 transition duration-700"></div>
+                <span class="relative z-10 text-[10px] mono text-stone-600">PHOTO_DATA_CORRUPTED</span>
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <h3 class="mono text-xs text-stone-600 mb-8 tracking-[0.3em] uppercase">Observation Logs & Works</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="glitch-border p-6 bg-stone-900/30">
+                    <span class="mono text-[10px] text-stone-500 mb-2 block">PROJECT ID: LUXIA_AOYAMA</span>
+                    <h4 class="text-lg mb-4">ルクシアレジデンス青山</h4>
+                    <p class="text-xs text-stone-400 leading-relaxed mb-6">
+                        第5階層までの地下構造を設計。通常の免震構造に加え、特定波長を打ち消すための「共鳴室」を配置。
+                        入居者の精神的安定は、地下からの「干渉」を遮断することで担保されている。
+                    </p>
+                    <div class="text-[9px] mono text-stone-600">STATUS: ACTIVE / LEVEL 04 CLEARANCE REQUIRED</div>
+                </div>
+
+                <div class="glitch-border p-6 bg-stone-900/30">
+                    <span class="mono text-[10px] text-stone-500 mb-2 block">PROJECT ID: UNKNOWN_SITE_07</span>
+                    <h4 class="text-lg mb-4">■■■■■収容施設</h4>
+                    <p class="text-xs text-stone-400 leading-relaxed mb-6">
+                        [データ削除済み]。建築材料として、高純度の■■石を使用。
+                        外部からの視認を不可能にするための幾何学的配置を採用。
+                    </p>
+                    <div class="text-[9px] mono text-red-900 animate-pulse">ERROR: DATA REDACTED</div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="py-12 border-t border-stone-800 text-center">
+            <p class="text-[10px] mono text-stone-600 mb-4 uppercase">Find the keyword hidden in the shadows.</p>
+            <div class="inline-block p-4 border border-dashed border-stone-800">
+                <span class="text-xs italic text-stone-500">"The name of the foundation is also the name of the cage."</span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-20 py-12 border-t border-stone-900 text-center">
+        <div class="flex flex-col items-center group mb-8">
+            <div class="w-48 h-0.5 bg-stone-900 rounded-full overflow-hidden mb-2">
+                <div class="bg-stone-500 h-full w-[60%] transition-all duration-1000 group-hover:bg-white"></div>
+            </div>
+            <div class="text-[9px] tracking-[0.3em] text-stone-600 mono flex items-center">
+                <span class="mr-2">PROGRESS:</span>
+                <span class="text-stone-400">06</span>
+                <span class="mx-1">/</span>
+                <span>10</span>
+            </div>
+        </div>
+        <p class="text-[9px] mono text-stone-800">&copy; K.R. Archive | No rights reserved. Access is privilege.</p>
+    </footer>
+
+    <script>
+        // 検索バーはここにはありませんが、九条の思想をコンソールに残す
+        console.log("%cKujo's Archive Access Detected", "color: #ff0000; font-weight: bold;");
+        console.log("The architect knows what lies beneath.");
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYPE-B Technical Specification | Luxia Residence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050505;
+            color: #a0a0a0;
+            font-family: 'Noto Serif JP', serif;
+        }
+        .mono { font-family: 'Share Tech Mono', monospace; }
+        .gold-text { color: #bfa37e; }
+        .blueprint-container {
+            background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+            background-size: 20px 20px;
+            border: 1px solid #222;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #bfa37e;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* 警告アニメーション */
+        @keyframes pulse-red {
+            0% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0.2; }
+        }
+        .warning-overlay {
+            animation: pulse-red 3s infinite;
+        }
+    </style>
+</head>
+<body class="pt-24">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-stone-900 transition-all duration-500">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="toppage.html" class="flex flex-col">
+                <span class="text-xs tracking-[0.3em] uppercase text-stone-600">Luxia Residence</span>
+                <span class="text-xl serif font-bold tracking-wider text-stone-200">ルクシアレジデンス青山</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 text-sm tracking-widest font-light">
+                <a href="toppage.html#concept" class="nav-link">CONCEPT</a>
+                <a href="location.html" class="nav-link">LOCATION</a>
+                <a href="design.html" class="nav-link">DESIGN</a>
+                <a href="plan.html" class="nav-link">PLAN</a>
+                <a href="access.html" class="nav-link">ACCESS</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <div class="hidden lg:flex items-center border-b border-stone-800 mr-4">
+                    <input type="text" id="site-search" placeholder="SEARCH" class="bg-transparent text-[10px] py-1 px-2 focus:outline-none placeholder-stone-700 w-32 tracking-widest text-stone-400">
+                    <button class="p-1" onclick="handleSearch()">
+                        <svg class="w-3 h-3 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-baseline mb-12 border-l-4 border-stone-800 pl-6">
+            <div>
+                <span class="mono text-xs gold-text tracking-[0.4em] uppercase mb-2 block">Restricted Plan Data</span>
+                <h1 class="text-4xl serif font-bold text-stone-100">TYPE-B / 観測用特区</h1>
+            </div>
+            <div class="text-right mt-4 md:mt-0">
+                <span class="mono text-sm text-stone-500 block">ID: OB-PLAN-092</span>
+                <span class="mono text-xs text-red-900 uppercase">Clearance Level: 04</span>
+            </div>
+        </div>
+
+        <!-- Technical Blueprint -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-24">
+            <div class="lg:col-span-2 blueprint-container p-8 relative overflow-hidden">
+                <div class="absolute inset-0 warning-overlay bg-red-900/5 pointer-events-none"></div>
+                <div class="relative z-10 aspect-square border border-stone-700 p-4">
+                    <!-- 間取り図の再構成 -->
+                    <svg viewBox="0 0 100 100" class="w-full h-full stroke-stone-500 stroke-[0.5] fill-none">
+                        <rect x="5" y="5" width="90" height="90" />
+                        <rect x="30" y="30" width="40" height="40" class="stroke-red-900 stroke-1 fill-red-900/5" />
+                        <text x="35" y="38" class="text-[3px] mono fill-red-800 italic">ATELIER (CELL-01)</text>
+                        <!-- 隠し配線のような線 -->
+                        <path d="M50 30 V0 M50 70 V100 M30 50 H0 M70 50 H100" class="stroke-stone-800 stroke-[0.2] dash" stroke-dasharray="2,1" />
+                        <circle cx="50" cy="50" r="2" class="fill-red-900 animate-pulse" />
+                    </svg>
+                </div>
+                <div class="mt-4 flex justify-between mono text-[10px] text-stone-600">
+                    <span>GRID_SCAN: ACTIVE</span>
+                    <span>SIGNAL_LEAK: 0.00%</span>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="p-6 bg-stone-900/50 border border-stone-800">
+                    <h3 class="serif text-lg text-stone-200 mb-4 border-b border-stone-800 pb-2">「アトリエ」の真機能</h3>
+                    <p class="text-xs leading-loose font-light">
+                        居住スペース中央に配置された「アトリエ」は、外界からの光を完全に遮断。厚さ600mmの特殊コンクリートと鉛層により、地下階層からの微弱な共鳴を増幅・記録するためのチャンバーとして機能します。
+                    </p>
+                </div>
+
+                <div class="p-6 bg-stone-900/50 border border-stone-800">
+                    <h3 class="serif text-lg text-stone-200 mb-4 border-b border-stone-800 pb-2">地下直結エレベーター</h3>
+                    <p class="text-xs leading-loose font-light">
+                        TYPE-B居住者のみが利用可能な専用エレベーターは、地下30mに位置する「第5観測階層」へ直通。一般の居住動線とは物理的に完全に隔離されています。
+                    </p>
+                </div>
+
+                <div class="text-[10px] mono text-stone-700 italic">
+                    Note: 入居後、特定の「音」が聞こえた場合でも、アトリエの扉は決して開放しないでください。
+                </div>
+            </div>
+        </section>
+
+        <!-- Personnel Only -->
+        <section class="py-16 border-t border-stone-900">
+            <h2 class="mono text-xs text-stone-600 tracking-[0.5em] uppercase mb-12 text-center">Containment Protocol Summary</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="text-2xl mono gold-text mb-2">01</div>
+                    <h4 class="text-xs text-stone-300 font-bold mb-2">遮断</h4>
+                    <p class="text-[10px] leading-relaxed text-stone-500">外部通信の検閲と電磁波シールドの常時展開。</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl mono gold-text mb-2">02</div>
+                    <h4 class="text-xs text-stone-300 font-bold mb-2">監視</h4>
+                    <p class="text-[10px] leading-relaxed text-stone-500">全壁面に埋め込まれた振動センサーによる24時間観測。</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl mono gold-text mb-2">03</div>
+                    <h4 class="text-xs text-stone-300 font-bold mb-2">換気</h4>
+                    <p class="text-[10px] leading-relaxed text-stone-500">地下由来の「気体」を浄化するための三段階HEPAフィルタ。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-20 px-6 text-center border-t border-stone-900">
+        <!-- 進捗度インジケーター (7/10) -->
+        <div class="flex flex-col items-center group mb-12">
+            <div class="w-64 h-0.5 bg-stone-900 rounded-full overflow-hidden mb-3">
+                <div class="bg-gold-text h-full w-[70%] transition-all duration-1000 group-hover:bg-white" style="background-color: #bfa37e;"></div>
+            </div>
+            <div class="text-[10px] tracking-[0.4em] text-stone-600 mono flex items-center">
+                <span class="mr-2">SYSTEM_SYNC:</span>
+                <span class="text-stone-300">07</span>
+                <span class="mx-1">/</span>
+                <span>10</span>
+            </div>
+        </div>
+        <p class="text-[9px] mono text-stone-800 tracking-widest uppercase">Unauthorized access to this data is a violation of the Aoyama Protocol.</p>
+    </footer>
+
+    <script>
+        function handleSearch() {
+            const query = document.getElementById('site-search').value;
+            if (query) {
+                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
+        }
+        document.getElementById('site-search').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') handleSearch();
+        });
+        
+        console.log("%c[ALERT] Technical Specification Data Loaded.", "color: #ff0000;");
+    </script>
+</body>
+</html>

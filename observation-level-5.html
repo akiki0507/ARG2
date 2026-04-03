@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBSERVATION_LEVEL_05 | SYSTEM_TERMINAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Sans+JP:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #020202;
+            color: #00ff41; /* クラシックなマトリックス・グリーン */
+            font-family: 'Share Tech Mono', 'Noto Sans JP', monospace;
+            overflow-x: hidden;
+        }
+        .terminal-glow {
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+        .border-terminal {
+            border: 1px solid #004411;
+        }
+        .bg-terminal-dark {
+            background-color: rgba(0, 20, 0, 0.9);
+        }
+        /* 心拍数のような波形アニメーション */
+        .waveform {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 4s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+        .flicker {
+            animation: flicker 0.1s infinite;
+        }
+        @keyframes flicker {
+            0% { opacity: 0.9; }
+            50% { opacity: 1; }
+            100% { opacity: 0.9; }
+        }
+        .crt-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 100;
+            pointer-events: none;
+            background-size: 100% 3px, 3px 100%;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="crt-overlay"></div>
+
+    <!-- Header Info -->
+    <header class="max-w-6xl mx-auto mb-8 border-b border-green-900 pb-4 flex justify-between items-end">
+        <div>
+            <h1 class="text-2xl font-bold terminal-glow uppercase tracking-tighter">Level 05: Deep Subterranean Monitoring</h1>
+            <p class="text-xs opacity-60">LOCATION: 35.6666N / 139.7139E | DEPTH: -32.4m</p>
+        </div>
+        <div class="text-right hidden md:block">
+            <span class="text-xs bg-green-900/30 px-2 py-1 border border-green-700">STATUS: CRITICAL_OBSERVATION</span>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Sidebar: Realtime Data -->
+        <div class="space-y-6">
+            <div class="border-terminal p-4 bg-terminal-dark">
+                <h3 class="text-xs mb-4 border-b border-green-900 pb-2 uppercase">Live Pulse Analysis</h3>
+                <div class="h-32 flex items-center justify-center">
+                    <svg viewBox="0 0 200 60" class="w-full">
+                        <path d="M0 30 L40 30 L45 10 L50 50 L55 30 L100 30 L110 55 L120 5 L130 30 L200 30" 
+                              fill="none" stroke="#00ff41" stroke-width="1" class="waveform" />
+                    </svg>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-[10px] mt-4">
+                    <div class="opacity-50">HZ_FREQUENCY:</div><div>0.82 Hz</div>
+                    <div class="opacity-50">VIBRATION_LV:</div><div class="text-yellow-500">STABLE_ERRATIC</div>
+                    <div class="opacity-50">SYNC_RATE:</div><div>94.2%</div>
+                </div>
+            </div>
+
+            <div class="border-terminal p-4 bg-terminal-dark text-[10px] leading-relaxed">
+                <h3 class="text-xs mb-4 border-b border-green-900 pb-2 uppercase">Biological Noise Filter</h3>
+                <p class="mb-2">現在の上層階居住者数: 42名</p>
+                <p class="opacity-70">
+                    上層の「生活ノイズ」は地下エネルギーの逆流を相殺するために最適化されています。TYPE-B ユニットのアトリエにて記録される「声」のようなものは、この相殺過程で生じる音響的副産物です。
+                </p>
+                <p class="mt-4 text-red-500 animate-pulse font-bold">WARNING: DO NOT OPEN CELL-01</p>
+            </div>
+        </div>
+
+        <!-- Main Center: Log Feed -->
+        <div class="lg:col-span-2 space-y-6">
+            <div class="border-terminal p-6 bg-terminal-dark h-[500px] overflow-y-auto custom-scrollbar">
+                <h3 class="text-xs mb-6 border-b border-green-900 pb-2 uppercase italic font-bold">REIJI_KUJO_ARCHIVE / INTERNAL_MEMO</h3>
+                
+                <div class="space-y-8 text-sm">
+                    <div class="log-entry">
+                        <span class="text-xs opacity-40">[1999.04.01]</span>
+                        <p class="mt-2 leading-loose">
+                            「ルクシア」という名は私が決めたのではない。土地の底から響く音を文字に起こした結果だ。
+                            第5観測階層の工事中、作業員3名が壁の向こう側を「見て」しまった。
+                            彼らは現在、青山レジデンスの基礎の一部として永久に保護されている。
+                        </p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="text-xs opacity-40">[2012.11.23]</span>
+                        <p class="mt-2 leading-loose text-yellow-200">
+                            TYPE-B の設計変更を完了。地下からの「脈動」が強まっている。
+                            このマンションは邸宅ではない。地下の心臓を抑えつけるための『重石（おもし）』だ。
+                            住人が豪華な暮らしを満喫すればするほど、その生命エネルギーが重石を強化する仕組みになっている。皮肉なものだ。
+                        </p>
+                    </div>
+
+                    <div class="log-entry border-l-2 border-red-900 pl-4 py-2">
+                        <span class="text-xs text-red-500 font-bold">[2024.08.15] - LAST_LOG</span>
+                        <p class="mt-2 leading-loose text-red-400">
+                            ついに第5階層の防壁に亀裂を確認。
+                            誰かが「非公開経路」を辿って、TYPE-B のアトリエに辿り着くのを待っている。
+                            このログを読んでいる君。君が次の『観測者』になるのか、それとも『供物』になるのか。
+                            青山へようこそ。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal Input Mimic -->
+            <div class="border-terminal p-3 bg-black flex items-center text-xs">
+                <span class="mr-2 text-green-700">user@terminal:~$</span>
+                <span class="flicker">_</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer: Progress 09/10 -->
+    <footer class="max-w-6xl mx-auto mt-12 py-8 border-t border-green-900 text-center relative">
+        <div class="flex flex-col items-center group">
+            <div class="w-72 h-1 bg-green-950 rounded-full overflow-hidden mb-4">
+                <div class="bg-green-500 h-full w-[90%] transition-all duration-1000 group-hover:bg-green-300"></div>
+            </div>
+            <div class="text-[10px] tracking-[0.6em] text-green-800 mono flex items-center">
+                <span class="mr-2">SYNC_LEVEL:</span>
+                <span class="text-green-500">09</span>
+                <span class="mx-1">/</span>
+                <span>10</span>
+            </div>
+        </div>
+        <p class="text-[9px] mt-6 opacity-30 uppercase tracking-[0.3em]">Connection will be terminated upon final synchronization.</p>
+    </footer>
+
+    <script>
+        // 検索ボタンなどのダミー
+        function handleSearch() {
+            const query = document.getElementById('site-search')?.value;
+            if (query) window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+        }
+
+        // 九条の末期のコンソールメッセージ
+        console.log("%cSYSTEM: PHASE 9 REACHED", "color: #00ff00; font-weight: bold;");
+        console.log("%cThe truth is only one step away.", "color: #00ff00;");
+    </script>
+</body>
+</html>

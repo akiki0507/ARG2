@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【公式】ルクシアレジデンス青山｜港区・青山の新築分譲マンション</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #fcfcfc;
+            color: #222;
+        }
+        .serif {
+            font-family: 'Noto Serif JP', serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #bfa37e;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .gold-text {
+            color: #bfa37e;
+        }
+        .gold-bg {
+            background-color: #bfa37e;
+        }
+        /* 微かな違和感用の隠し要素（後の展開用） */
+        .hidden-trigger {
+            opacity: 0.02;
+            cursor: default;
+        }
+        html {
+    scroll-behavior: smooth;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-500">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex flex-col">
+                <span class="text-xs tracking-[0.3em] uppercase text-gray-500">Luxia Residence</span>
+                <span class="text-xl serif font-bold tracking-wider">ルクシアレジデンス青山</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 text-sm tracking-widest font-light">
+                <a href="#concept" class="nav-link">CONCEPT</a>
+                <a href="/Users/sakazu/Downloads/マンション/location.html" class="nav-link">LOCATION</a>
+                <a href="/Users/sakazu/Downloads/マンション/design.html" class="nav-link">DESIGN</a>
+                <a href="/Users/sakazu/Downloads/マンション/plan.html" class="nav-link">PLAN</a>
+                <a href="/Users/sakazu/Downloads/マンション/access.html" class="nav-link">ACCESS</a>
+            </nav>
+
+            
+    <div class="hidden lg:flex items-center border-b border-stone-300 mr-4">
+    <input type="text" id="site-search" placeholder="キーワードを入力" class="bg-transparent text-[10px] py-1 px-2 focus:outline-none placeholder-stone-400 w-32 tracking-widest">
+    <button class="p-1" onclick="handleSearch()">
+        <svg class="w-3 h-3 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+    </button>
+</div>
+                <button class="bg-stone-800 text-white px-6 py-2 text-xs tracking-widest hover:bg-stone-700 transition">資料請求</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative hero-bg flex items-center justify-center text-white overflow-hidden">
+            <div class="absolute inset-0 bg-black/10"></div>
+            <div class="relative z-10 text-center space-y-6 px-4">
+                <p class="text-sm md:text-base tracking-[0.5em] font-light fade-in">青山の静寂、都心の矜持。</p>
+                <h1 class="text-4xl md:text-6xl serif font-bold leading-tight">
+                    時代を呼吸し、<br>
+                    永劫に住まう。
+                </h1>
+                <div class="pt-8">
+                    <div class="w-px h-24 bg-white/50 mx-auto animate-pulse"></div>
+                </div>
+            </div>
+            <!-- ARG用の微かなヒント：特定の座標にある透明なボタン（現在は何もしない） -->
+            <div class="absolute bottom-10 right-10 w-4 h-4 hidden-trigger" onclick="console.log('Observation Log #01: Access attempt detected.')"></div>
+        </section>
+
+        <!-- Concept Section -->
+        <section id="concept" class="py-24 bg-white text-center">
+            <div class="max-w-3xl mx-auto px-6">
+                <span class="gold-text text-sm tracking-[0.4em] uppercase block mb-4">Concept</span>
+                <h2 class="text-3xl serif mb-12">「静謐」という名の贅。</h2>
+                <p class="leading-relaxed text-gray-600 font-light mb-8">
+                    表参道の華やぎから一歩、奥まった場所へ。<br>
+                    そこには、都市の喧騒を忘れさせる深い静寂が広がっています。<br>
+                    「ルクシアレジデンス青山」が目指したのは、<br>
+                    単なる住居ではなく、住まう人の精神を解き放つ聖域。
+                </p>
+                <p class="leading-relaxed text-gray-600 font-light">
+                    厳選された天然石、計算された光の陰影、<br>
+                    そして、四季を五感で享受するプライベートガーデン。<br>
+                    すべては、あなたの豊かな日常のために。
+                </p>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="pb-24 grid grid-cols-1 md:grid-cols-3 gap-1 px-4">
+            <div class="relative group overflow-hidden aspect-[4/5]">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800" alt="Interior" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex flex-col justify-end p-8 text-white">
+                    <span class="text-xs tracking-widest mb-2">DESIGN</span>
+                    <h3 class="text-xl serif">洗練を極めた意匠</h3>
+                </div>
+            </div>
+            <div class="relative group overflow-hidden aspect-[4/5]">
+                <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=800" alt="View" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex flex-col justify-end p-8 text-white">
+                    <span class="text-xs tracking-widest mb-2">LOCATION</span>
+                    <h3 class="text-xl serif">青山の中心で、空を仰ぐ</h3>
+                </div>
+            </div>
+            <div class="relative group overflow-hidden aspect-[4/5]">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800" alt="Concierge" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex flex-col justify-end p-8 text-white">
+                    <span class="text-xs tracking-widest mb-2">HOSPITALITY</span>
+                    <h3 class="text-xl serif">24時間体制のコンシェルジュ</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section -->
+        <section class="py-20 bg-stone-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="flex justify-between items-end mb-8 border-b border-stone-200 pb-4">
+                    <h2 class="text-2xl serif">Information</h2>
+                    <a href="#" class="text-xs tracking-widest text-stone-500 hover:text-stone-800 transition">VIEW ALL</a>
+                </div>
+                <ul class="space-y-6">
+                    <li class="flex flex-col md:flex-row md:items-center">
+                        <span class="text-stone-400 text-sm md:w-32">2024.10.15</span>
+                        <span class="bg-stone-200 text-[10px] px-2 py-0.5 w-max my-1 md:my-0 md:mr-4">EVENT</span>
+                        <a href="#" class="text-stone-700 hover:text-stone-900 font-light border-b border-transparent hover:border-stone-400 transition">モデルルーム事前優先見学会の受付を開始いたしました。</a>
+                    </li>
+                    <li class="flex flex-col md:flex-row md:items-center">
+                        <span class="text-stone-400 text-sm md:w-32">2024.09.01</span>
+                        <span class="bg-stone-200 text-[10px] px-2 py-0.5 w-max my-1 md:my-0 md:mr-4">UPDATE</span>
+                        <a href="#" class="text-stone-700 hover:text-stone-900 font-light border-b border-transparent hover:border-stone-400 transition">公式ウェブサイトを公開いたしました。</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-16 px-6 text-center">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-10 flex flex-col items-center">
+                <span class="text-xs tracking-[0.4em] uppercase mb-2">Luxia Residence Aoyama</span>
+                <div class="w-10 h-px bg-stone-700"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 text-[10px] tracking-widest text-left max-w-2xl mx-auto uppercase">
+                <a href="#concept" class="hover:text-white transition">Concept</a>
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Company Profile</a>
+                <a href="#" class="hover:text-white transition">Contact</a>
+            </div>
+
+            <p class="text-[9px] leading-relaxed mb-4">
+                ※掲載の完成予想図は計画段階の図面を基に描いたもので実際とは異なります。<br>
+                ※徒歩分数は80mを1分として算出したものです。
+            </p>
+            
+            <p class="text-[10px] text-stone-600">&copy; 2024 Luxia Estate Co., Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="mt-12 mb-8 flex flex-col items-center group">
+    <div class="w-48 h-0.5 bg-stone-800 rounded-full overflow-hidden mb-2">
+        <div class="bg-stone-600 h-full w-[10%] transition-all duration-1000 group-hover:bg-stone-400"></div>
+    </div>
+    <div class="text-[9px] tracking-[0.3em] text-stone-600 font-mono flex items-center">
+        <span class="mr-2">PROGRESS:</span>
+        <span class="text-stone-500">01</span>
+        <span class="mx-1">/</span>
+        <span>10</span>
+    </div>
+</div>
+
+    <!-- Overlay for the subtle ARG hint (Invisible but interactive) -->
+    <div id="arg-trigger" style="position: fixed; top: 0; left: 0; width: 10px; height: 10px; cursor: default; z-index: 9999;" onmouseover="this.style.opacity='0.1'"></div>
+
+    <script>
+        // 未来のARG展開用の関数（現在はコンソールにログを残すのみ）
+        document.addEventListener('keydown', function(e) {
+            // 例: 特定のキー入力（Alt+Lなど）で何かを起こすための準備
+            if (e.altKey && e.key === 'l') {
+                console.warn('System status: Normal operation.');
+                console.info('Wait... there is no record of "Luxia Estate Co." in the database.');
+            }
+        });
+
+        function handleSearch() {
+    const query = document.getElementById('site-search').value;
+    if (query) {
+        // ここで「search.html?q=入力した文字」というURLを作って移動します
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+    }
+}
+
+// Enterキーでも検索できるようにする
+document.getElementById('site-search').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') handleSearch();
+});
+    </script>
+</body>
+</html>

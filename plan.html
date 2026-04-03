@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAN｜【公式】ルクシアレジデンス青山</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #fcfcfc;
+            color: #222;
+        }
+        .serif { font-family: 'Noto Serif JP', serif; }
+        .gold-text { color: #bfa37e; }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #bfa37e;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .floor-plan-box {
+            border: 1px solid #eee;
+            padding: 2rem;
+            background: white;
+            transition: all 0.5s;
+        }
+        .floor-plan-box:hover {
+            border-color: #bfa37e;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+        }
+        .restricted-badge {
+            font-size: 10px;
+            background: #f4f4f4;
+            color: #999;
+            padding: 2px 8px;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (共通) -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-500">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="toppage.html" class="flex flex-col">
+                <span class="text-xs tracking-[0.3em] uppercase text-gray-500">Luxia Residence</span>
+                <span class="text-xl serif font-bold tracking-wider">ルクシアレジデンス青山</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 text-sm tracking-widest font-light">
+                <a href="toppage.html#concept" class="nav-link">CONCEPT</a>
+                <a href="location.html" class="nav-link">LOCATION</a>
+                <a href="design.html" class="nav-link">DESIGN</a>
+                <a href="plan.html" class="nav-link gold-text font-medium">PLAN</a>
+                <a href="#" class="nav-link">ACCESS</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <!-- 検索バー -->
+                <div class="hidden lg:flex items-center border-b border-stone-300 mr-4">
+                    <input type="text" id="site-search" placeholder="キーワードを入力" class="bg-transparent text-[10px] py-1 px-2 focus:outline-none placeholder-stone-400 w-32 tracking-widest">
+                    <button class="p-1" onclick="handleSearch()">
+                        <svg class="w-3 h-3 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <button class="bg-stone-800 text-white px-6 py-2 text-xs tracking-widest hover:bg-stone-700 transition">資料請求</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="py-20 bg-stone-50 border-b border-stone-100">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <span class="gold-text text-sm tracking-[0.4em] uppercase block mb-4">Plan</span>
+                <h1 class="text-3xl md:text-4xl serif font-bold tracking-widest leading-tight text-stone-800">
+                    プライバシーを超えた、<br>「絶対的領域」。
+                </h1>
+                <p class="mt-8 text-sm text-stone-500 font-light leading-loose">
+                    全住戸、100㎡を超えるゆとりある設計。計算し尽くされた動線は、<br>
+                    外部からの視線を遮るだけでなく、室内における「観測の死角」を最小限に抑えています。
+                </p>
+            </div>
+        </section>
+
+        <!-- Floor Plans -->
+        <section class="py-24 bg-white">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    
+                    <!-- Type A -->
+                    <div class="floor-plan-box">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-xs gold-text tracking-widest block mb-1 uppercase">Standard Type</span>
+                                <h3 class="text-2xl serif">TYPE-A</h3>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-lg serif block">124.50㎡</span>
+                                <span class="text-[10px] text-gray-400 uppercase">3LDK + WIC + SIC</span>
+                            </div>
+                        </div>
+                        <div class="aspect-square bg-stone-50 flex items-center justify-center mb-6 relative group overflow-hidden">
+                            <!-- 簡易的な間取り図イメージ -->
+                            <div class="p-12 w-full h-full opacity-40 grayscale group-hover:grayscale-0 transition duration-700">
+                                <svg viewBox="0 0 100 100" class="w-full h-full stroke-stone-400 stroke-1 fill-none">
+                                    <rect x="10" y="10" width="80" height="80" />
+                                    <line x1="10" y1="40" x2="60" y2="40" />
+                                    <line x1="60" y1="10" x2="60" y2="70" />
+                                    <line x1="60" y1="70" x2="90" y2="70" />
+                                    <circle cx="35" cy="25" r="5" class="stroke-stone-300 dash" stroke-dasharray="2,2" />
+                                    <circle cx="75" cy="40" r="5" class="stroke-stone-300 dash" stroke-dasharray="2,2" />
+                                </svg>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 bg-stone-900/5 backdrop-blur-[2px]">
+                                <span class="text-[10px] tracking-[0.3em] uppercase bg-white px-4 py-2 border border-stone-200">View Details</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 font-light leading-relaxed">
+                            南向きの広大なリビングダイニングを中心に、各居室を独立させたプライベート重視のプラン。パントリー横の「ユーティリティスペース」は、壁面厚が通常より20%増強されています。
+                        </p>
+                    </div>
+
+                    <!-- Type B (Something is wrong) -->
+                    <div class="floor-plan-box">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-xs gold-text tracking-widest block mb-1 uppercase">Observation Type</span>
+                                <h3 class="text-2xl serif">TYPE-B</h3>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-lg serif block">156.20㎡</span>
+                                <span class="text-[10px] text-gray-400 uppercase">2LDK + ATELIER + ??</span>
+                            </div>
+                        </div>
+                        <div class="aspect-square bg-stone-50 flex items-center justify-center mb-6 relative group overflow-hidden border border-dashed border-stone-200">
+                            <div class="p-12 w-full h-full opacity-40 grayscale filter blur-[1px]">
+                                <svg viewBox="0 0 100 100" class="w-full h-full stroke-stone-800 stroke-1 fill-none">
+                                    <rect x="10" y="10" width="80" height="80" />
+                                    <rect x="30" y="30" width="40" height="40" class="fill-stone-900/5" />
+                                    <line x1="50" y1="10" x2="50" y2="90" />
+                                </svg>
+                            </div>
+                            <div class="absolute top-4 right-4 restricted-badge">ADMIN ONLY</div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center bg-white/80 p-8 text-center">
+                                <svg class="w-8 h-8 text-stone-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                                <span class="text-[10px] tracking-[0.2em] text-stone-400 uppercase">本プランの図面公開は制限されています。</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 font-light leading-relaxed italic">
+                            「アトリエ」と称された部屋には窓が存在せず、24時間稼働の排気システムと専用の通信回線が標準装備されています。また、このプランのみ、管理規約に「特別な項」が追加されます。
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Specifications -->
+        <section class="py-24 bg-stone-900 text-stone-400">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row gap-12">
+                    <div class="md:w-1/3">
+                        <h2 class="text-xl serif text-white mb-4">Specifications</h2>
+                        <div class="w-8 h-px bg-stone-700"></div>
+                    </div>
+                    <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8 text-[11px] tracking-widest leading-loose">
+                        <div>
+                            <h4 class="text-stone-200 mb-2 font-bold uppercase">Structure</h4>
+                            <p>耐震構造を凌駕する「免震+制震」のハイブリッド構造。地中のアーティファクトを起点とした安定基盤。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-stone-200 mb-2 font-bold uppercase">Security</h4>
+                            <p>5段階のセキュリティ。エレベーター内には「生体反応検知システム」を搭載。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-stone-200 mb-2 font-bold uppercase">Soundproof</h4>
+                            <p>T-4等級相当。外部の音だけでなく、内部の「特定の周波数」の漏洩も防ぎます。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-stone-200 mb-2 font-bold uppercase">Internal Network</h4>
+                            <p>全戸に「外部から隔離された」独自の内部ネットワークを提供。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-500 py-16 px-6 text-center border-t border-stone-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-10 flex flex-col items-center">
+                <span class="text-xs tracking-[0.4em] uppercase mb-2">Luxia Residence Aoyama</span>
+                <div class="w-10 h-px bg-stone-800"></div>
+            </div>
+
+            <!-- 進捗度インジケーター (4/10) -->
+            <div class="mt-4 mb-12 flex flex-col items-center group">
+                <div class="w-48 h-0.5 bg-stone-900 rounded-full overflow-hidden mb-2">
+                    <div class="bg-stone-700 h-full w-[40%] transition-all duration-1000 group-hover:bg-stone-500"></div>
+                </div>
+                <div class="text-[9px] tracking-[0.3em] text-stone-700 font-mono flex items-center">
+                    <span class="mr-2">PROGRESS:</span>
+                    <span class="text-stone-600">04</span>
+                    <span class="mx-1">/</span>
+                    <span>10</span>
+                </div>
+            </div>
+            
+            <p class="text-[9px] leading-relaxed mb-4 text-stone-600">
+                ※掲載の間取り図は計画段階の図面を基に描いたもので実際とは異なります。<br>
+                ※TYPE-Bの入居には、別途「非公開事項に関する同意書」への署名が必要となります。
+            </p>
+            
+            <p class="text-[10px] text-stone-700">&copy; 2024 Luxia Estate Co., Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSearch() {
+            const query = document.getElementById('site-search').value;
+            if (query) {
+                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
+        }
+
+        document.getElementById('site-search').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') handleSearch();
+        });
+    </script>
+</body>
+</html>

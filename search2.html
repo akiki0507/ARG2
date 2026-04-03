@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>検索結果｜ルクシアレジデンス青山</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: #fcfcfc; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="pt-32">
+    <div class="max-w-4xl mx-auto px-6">
+        <h1 class="text-sm text-stone-500 tracking-widest mb-2">SEARCH RESULTS</h1>
+        <div class="flex items-baseline space-x-4 mb-12">
+            <span class="text-3xl font-serif">「<span id="query-display"></span>」</span>
+            <span class="text-sm text-stone-400">の検索結果</span>
+        </div>
+
+        <div id="results-list" class="space-y-8">
+            <div id="res-concept" class="hidden border-b pb-8">
+                <a href="toppage.html#concept" class="text-xl font-serif">「静謐」という名の贅。</a>
+                <p class="text-sm text-stone-500 mt-2">コンセプト：青山の静寂、都心の矜持。</p>
+            </div>
+            <div id="res-location" class="hidden border-b pb-8">
+                <a href="location.html" class="text-xl font-serif">東京の深層、青山の特異点。</a>
+                <p class="text-sm text-stone-500 mt-2">ロケーション：歴史が幾層にも重なる場所。</p>
+            </div>
+            <div id="res-design" class="hidden border-b pb-8">
+                <a href="design.html" class="text-xl font-serif">意識を研ぎ澄ます、幾何学の極致。</a>
+                <p class="text-sm text-stone-500 mt-2">デザイン：建築家・九条玲二が求めたもの。</p>
+            </div>
+            <div id="res-plan" class="hidden border-b pb-8">
+                <a href="plan.html" class="text-xl font-serif">プライバシーを超えた、「絶対的領域」。</a>
+                <p class="text-sm text-stone-500 mt-2">プラン：全住戸100㎡超のゆとりある設計。</p>
+            </div>
+        </div>
+
+        <div id="no-results" class="hidden py-20 text-center text-stone-400">
+            該当する情報は公開されていません。
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // URLから ?q=... の部分を読み取る
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('q');
+            
+            if (query) {
+                document.getElementById('query-display').textContent = query;
+                const q = query.toUpperCase(); // 大文字小文字を区別せず判定
+                let found = false;
+
+                // キーワードが一致する場合だけ表示させる
+                if (q === "CONCEPT" || q === "コンセプト") {
+                    document.getElementById('res-concept').classList.remove('hidden');
+                    found = true;
+                }
+                if (q === "LOCATION" || q === "ロケーション") {
+                    document.getElementById('res-location').classList.remove('hidden');
+                    found = true;
+                }
+                if (q === "DESIGN" || q === "デザイン") {
+                    document.getElementById('res-design').classList.remove('hidden');
+                    found = true;
+                }
+                if (q === "PLAN" || q === "プラン") {
+                    document.getElementById('res-plan').classList.remove('hidden');
+                    found = true;
+                }
+
+                // 一つも一致しなかったら「該当なし」を表示
+                if (!found) {
+                    document.getElementById('no-results').classList.remove('hidden');
+                }
+            } else {
+                document.getElementById('no-results').classList.remove('hidden');
+            }
+        };
+    </script>
+</body>
+</html>
